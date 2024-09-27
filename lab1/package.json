@@ -1,0 +1,6 @@
+{
+    "type": "module",
+    "dependencies": {
+        "libphonenumber-js": "^1.11.8"
+    }
+}
