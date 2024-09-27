@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachinder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="retreat">
+        <header class="header">
+            <div class="logo-search">
+              <img src="photos\title.png" class="TeachinderLogo" alt="Ihor Tkachuk">
+              <div class="net-search-button">
+                <input class="net-search" type="text" placeholder="Name, note or age to search">
+                <button class="search-button">Search</button>
+              </div>
+            </div>
+            <div class="list-button">
+              <ul class="list">
+                  <li>Teachers</li>
+                  <li>Statistics</li>
+                  <li>Favorites</li>
+                  <li>About</li>
+              </ul>
+              <button class="add-teacher-button">Add teacher</button>
+            </div>
+        </header>
+        <hr class="hr">
+        <section class="section">
+            <h2 class="titles">Top Teachers</h1>
+            <div class="top-teachers-categories" id="filter-form">
+                <form class="categories-form">
+                    <label class="age-select">Age</label>
+                    <select id="age">
+                      <option value="18-31">18-31</option>
+                      <option value="32-45">32-45</option>
+                      <option value="46-59">46-59</option>
+                      <option value="60-73">60-73</option>
+                      <option value="74-87">74-87</option>
+                    </select>
+                </form>
+                <form class="categories-form">
+                    <label class="country-select">Region</label>
+                    <select id="country">
+                      <option value="Germany">Germany</option>
+                      <option value="Australia">Australia</option>
+                      <option value="Finland">Finland</option>
+                      <option value="Switzerland">Switzerland</option>
+                      <option value="Spain">Spain</option>
+                      <option value="Denmark">Denmark</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="Ireland">Ireland</option>
+                      <option value="United States">United States</option>
+                      <option value="Turkey">Turkey</option>
+                      <option value="New Zealand">New Zealand</option>
+                      <option value="Norway">Norway</option>
+                      <option value="Iran">Iran</option>
+                      <option value="France">France</option>
+                    </select>
+                </form>
+                <form class="categories-form">
+                    <label class="gender-select">Sex</label>
+                    <select id="gender">
+                      <option value="male">male</option>
+                      <option value="female">female</option>
+                    </select>
+                </form>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="only-with-photo"> Only with photo
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="favorites-only"> Only favorites
+                </label>
+            </div>
+            <div class="teacher-popup" id="teacher-popup" style="display:none;">
+              <div class="popup-content">
+                  <span class="close-popup" id="close-popup">&times;</span>
+                  <div class="teacher-info-lable">
+                    <label for="teacher-info">Teacher Info</label>
+                  </div>
+                  <div class="img-cont">
+                      <img src="" alt="Teacher Photo" id="popup-img" class="popup-teacher-photo">
+                      <div class="contact-info-star">
+                        <div class="contact-info">
+                          <h2 id="popup-name"></h2>
+                          <h3 id="popup-subject"></h3>
+                          <p id="popup-country"></p>
+                          <p id="popup-age"></p>
+                          <a href="" id="popup-email"></a>
+                          <p id="popup-phone"></p>
+                        </div>
+                        <span class="star" id="star"></span>
+                      </div>
+                  </div>
+                  <div class="description">
+                      <p id="popup-description"></p>
+                  </div>
+              </div>
+            </div>
+            <div class="form-container-popup" id="add-teacher-popup" style="display:none;">
+              <div class="add-teacher-popup-content">
+                <span class="close-add-teacher-popup" id="close-popup-add-teacher">&times;</span>
+                <div class="add-teacher-lable">
+                    <h2>Add Teacher</h2>
+                </div>
+                <form>
+                    <div class="name">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter name">
+                    </div>
+            
+                    <div class="spec">
+                        <label for="speciality">Speciality</label>
+                        <select id="speciality">
+                            <option value="mathematics">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                        </select>
+                    </div>
+            
+                    <div class="country-city">
+                        <div class="country-popup">
+                            <label for="country">Country</label>
+                            <select id="country-add-teacher">
+                                <option value="ukraine">Ukraine</option>
+                                <option value="usa">USA</option>
+                                <option value="uk">UK</option>
+                            </select>
+                        </div>
+                        <div class="city">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="Enter city">
+                        </div>
+                    </div>
+            
+                    <div class="email-phone">
+                        <div class="email">
+                        <label for="email">Email</label>
+                        <input type="email" id="email"  placeholder="Enter email">
+                        </div>
+            
+                        <div class="phone">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="Enter phone number">
+                        </div>
+                    </div>
+            
+                    <div class="dob">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" >
+                    </div>
+            
+                    <div class="sex">
+                        <div class="sex-lable">
+                            <label>Sex</label>
+                        </div>
+                        <div class="sex-margin">
+                          <label for="male">Male</label>
+                          <input type="radio" id="male" name="sex" value="male"> 
+            
+                          <label for="female">Female</label>
+                          <input type="radio" id="female" name="sex" value="female">
+                        </div>
+                    </div>
+            
+                    <div class="bgc">
+                        <div class="lable-bgc">
+                            <label for="bgcolor">Background color</label>
+                        </div>
+                        <div class="type-color-input">
+                            <input type="color" id="bgcolor">
+                        </div>
+                    </div>
+            
+                    <div class="notes-lable">
+                        <label for="notes">Notes (optional)</label>
+                    </div>
+                    <div class="notes">
+                        <textarea id="notes" placeholder="Enter notes"></textarea>
+                    </div>
+            
+                    <button class="button">Add</button>
+                </form>
+              </div>
+            </div>
+            <div class="top-teachers-profiles" id="teachers-container" onclick="openPopup('teacherInfo.html')">
+                <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto1.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Ihor</h3>
+                    <h3>Tkachuk</h3>
+                    <span>Chemistry</span>
+                    <span class="country">Ukraine</span>
+                </div>
+                <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto2.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Pragg</h3>
+                    <h3>Rameshbabu</h3>
+                    <span>Chess</span>
+                    <span class="country">India</span>
+                </div>
+                <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto3.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Ihor</h3>
+                    <h3>Tkachuk</h3>
+                    <span>Vocal</span>
+                    <span class="country">Ukraine</span>
+                </div>
+                <div class="top-teachers-profile">
+                  <img src="photos\teacherRoundPhoto4.jpg" class="circle-image" alt="Ihor Tkachuk">
+                  <h3>Ihor</h3>
+                  <h3>Tkachuk</h3> 
+                  <span>Computer Science</span>
+                  <span class="country">Belgium</span>
+                </div>
+                <div class="top-teachers-profile">
+                  <img src="photos\teacherRoundPhoto5.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                  <h3>Ihor</h3>
+                  <h3>Tkachuk</h3>
+                  <span>Biology</span>
+                  <span class="country">China</span>
+                </div>
+                <div class="top-teachers-profile">
+                  <img src="photos\teacherRoundPhoto6.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                  <h3>Ihor</h3>
+                  <h3>Tkachuk</h3>
+                  <span>Medicine</span>
+                  <span class="country">UK</span>
+                </div>
+                <div class="top-teachers-profile">
+                  <img src="photos\teacherRoundPhoto7.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                  <h3>Ihor</h3>
+                  <h3>Tkachuk</h3>
+                  <span>Chess</span>
+                  <span class="country">Poland</span>
+                </div>
+                <div class="top-teachers-profile">
+                  <img src="photos\teacherRoundPhoto8.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                  <h3>Ihor</h3>
+                  <h3>Tkachuk</h3>
+                  <span>Physics</span>
+                  <span class="country">Spain</span>
+                </div>
+            </div>
+            <hr class="hr">
+            <div>
+                <h2 class="titles">Statistics</h1>
+                <table id="stats-body">
+                    <thead class="thead">
+                      <tr>
+                        <th class="th-name" id="sort-name">Name</th>
+                        <th id="sort-course">Speciality</th>
+                        <th id="sort-age">Age</th>
+                        <th>Gender</th>
+                        <th id="sort-country">Nationality</th>
+                      </tr>
+                    </thead>
+                    <tbody id="stats-body-1" >
+                      <tr class="tr">
+                        <td class="td-name">Daisy Alexander</td>
+                        <td>Chemistry</td>
+                        <td>28</td>
+                        <td>Female</td>
+                        <td>Vietnam</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Julla  Bradicy</td>
+                        <td>Math</td>
+                        <td>76</td>
+                        <td>Female</td>
+                        <td>USA</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Rita Hart</td>
+                        <td>Art</td>
+                        <td>41</td>
+                        <td>Female</td>
+                        <td>Ireland</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Junethan Jesubs</td>
+                        <td>Math</td>
+                        <td>32</td>
+                        <td>Male</td>
+                        <td>England</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Nathaniel White</td>
+                        <td>Computer Science</td>
+                        <td>37</td>
+                        <td>Male</td>
+                        <td>Austria</td>
+                      </tr>
+                      <tr> 
+                        <td class="td-name">Frank Medina</td>
+                        <td>English</td>
+                        <td>43</td>
+                        <td>Male</td>
+                        <td>Italy</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Ella Curtis</td>
+                        <td>Chess</td>
+                        <td>34</td>
+                        <td>Female</td>
+                        <td>USA</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Claire Simmmons</td>  
+                        <td>Art</td>
+                        <td>38</td>
+                        <td>Female</td>
+                        <td>Netherlands</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Benjamin Knight</td>
+                        <td>Biology</td>
+                        <td>44</td>
+                        <td>Male</td>
+                        <td>Scotland</td>
+                      </tr>
+                      <tr>
+                        <td class="td-name">Nonne Ruse</td>
+                        <td>Statistics</td>
+                        <td>36</td>
+                        <td>Female</td>
+                        <td>France</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <hr class="hr">
+                <h2 class="titles">Favorites</h1>
+                <div class="favorites" id="teachers-container-favorite">
+                  <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto1.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Ihor</h3>
+                    <h3>Tkachuk</h3>
+                    <span>Chemistry</span>
+                    <span class="country">Ukraine</span>
+                  </div>
+                  <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto2.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Pragg</h3>
+                    <h3>Rameshbabu</h3>
+                    <span>Chess</span>
+                    <span class="country">India</span>
+                  </div>
+                  <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto3.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Ihor</h3>
+                    <h3>Tkachuk</h3>
+                    <span>Vocal</span>
+                    <span class="country">Ukraine</span>
+                  </div>
+                  <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto4.jpg" class="circle-image" alt="Ihor Tkachuk">
+                    <h3>Ihor</h3>
+                    <h3>Tkachuk</h3> 
+                    <span>Computer Science</span>
+                    <span class="country">Belgium</span>
+                  </div>
+                  <div class="top-teachers-profile">
+                    <img src="photos\teacherRoundPhoto5.jpg" class="circle-image" alt="Ihor Tkachuk"> 
+                    <h3>Ihor</h3>
+                    <h3>Tkachuk</h3>
+                    <span>Biology</span>
+                    <span class="country">China</span>
+                  </div>
+                </div>
+                <hr class="hr">
+                <div class="p">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque facere, hic impedit itaque molestiae sit tempore? Ea in mollitia natus rerum voluptates. Ea ex excepturi facere tempora. Aliquid asperiores hic impedit lusto natus quaerat ratione sit? Culpa lusto optio voluptas voluptate. Enim eveniet fugit iure maiores molestiae, praesentium quia.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eligendi illum in inventore ipsum odio officiis omnis quisquam sed tempora?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque esse expedita id lusto mollitia, odit sint ullam veritatis vero?
+                  </p>
+               </div>    
+            </div>
+        </section>
+        <footer>
+          <div class="list-button">
+            <ul class="list">
+                <li>Teachers</li>
+                <li>Statistics</li>
+                <li>Favorites</li>
+                <li>About</li>
+            </ul>
+            <button class="add-teacher-button">Add teacher</button>
+          </div>
+        </footer>
+    </div>
+    <script src="script.js" type="module"></script>
+    <script src="table-script.js" type="module"></script>
+    <script src="search-script.js" type="module"></script>
+    <script src="add-teacher-popup-script.js" type="module"></script>
+</body>
+</html>
