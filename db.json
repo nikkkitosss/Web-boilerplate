@@ -1,0 +1,56 @@
+{
+  "teachers": [
+    {
+      "id": "8f8a",
+      "full_name": "Nikita",
+      "course": "mathematics",
+      "country": "ukraine",
+      "city": "Kyiv",
+      "email": "nikita.zagoruy.nz@gmail.com",
+      "phone": "+1234567890",
+      "dob": "2024-10-31",
+      "gender": "male",
+      "bgcolor": "#24d642",
+      "note": "lallaa"
+    },
+    {
+      "id": "ecfb",
+      "full_name": "Maks",
+      "course": "mathematics",
+      "country": "ukraine",
+      "city": "Kyiv",
+      "email": "maks.zagoruy.nz@gmail.com",
+      "phone": "+1234567890",
+      "dob": "2024-10-12",
+      "gender": "male",
+      "bgcolor": "#1af446",
+      "note": ""
+    },
+    {
+      "id": "1144",
+      "full_name": "Dmytro",
+      "course": "chemistry",
+      "country": "ukraine",
+      "city": "Kyiv",
+      "email": "dmytro.zagoruy.nz@gmail.com",
+      "phone": "+1234567890",
+      "dob": "2024-10-12",
+      "gender": "male",
+      "bgcolor": "#000000",
+      "note": ""
+    },
+    {
+      "id": "fd5e",
+      "full_name": "Anna",
+      "course": "chemistry",
+      "country": "ukraine",
+      "city": "Kyiv",
+      "email": "anna.zagoruy.nz@gmail.com",
+      "phone": "+1234567890",
+      "dob": "2024-10-10",
+      "gender": "female",
+      "bgcolor": "#bc23c7",
+      "note": ""
+    }
+  ]
+}
