@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Teacher</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .add-teacher-lable{
+            font-size: 1.3vw;
+            display: flex;
+            align-items: center;
+            padding-left: 1vw;
+            background-color: #555;
+            height: 3vw;
+            color: white;
+        }
+        .name {
+            width: 23vw;
+            margin-left: 1.5vw;
+        }
+        .spec {
+            width: 24vw;
+            margin-left: 1.5vw;            
+        }
+        .country-city {
+            display: flex;
+            margin-left: 1.5vw;
+        }
+        .country {
+            width: 11vw;
+        }
+        .city {
+            width: 11vw;
+            margin-left: 1vw;
+        }
+        .email-phone{
+            display: flex;
+        }
+        .email{
+            width: 10vw;
+            margin-left: 1.5vw;
+        }
+        .phone{
+            width: 11vw;
+            padding-left: 1vw;
+            margin-left: 1vw;
+        }
+        .dob{
+            width: 10vw;
+            margin-left: 1.5vw;
+        }
+        .sex{
+            display: flex;
+        }
+        .sex-lable{
+            margin-left: 1.5vw;
+        }
+        .bgc{
+            display: flex;
+            margin-left: 1.5vw;
+        }
+        .type-color-input{
+            width: 3vw  ;
+            margin-left: 1.5vw;
+        }
+        .form-container {
+            width: 27vw;
+            margin: auto;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .form-container label {
+            display: block;
+            margin: 0.5vw;
+        }
+        .notes-lable{
+            margin-left: 1.5vw;
+        }
+        .notes{
+            width: 23vw;
+            margin-left: 1.5vw;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 0.5vw;
+            margin-bottom: 0.5vw;
+            border: 1px solid #ccc;
+        }
+        .form-container button {
+            width: 24vw;
+            height: 2.5vw;
+            margin-left: 1.5vw;
+            margin-bottom: 1vw;
+            background-color: white;
+            border: 1px solid orange;
+            color: orange;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="add-teacher-lable">
+        <h2>Add Teacher</h2>
+    </div>
+    <form>
+        <div class="name">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter name">
+        </div>
+
+        <div class="spec">
+            <label for="speciality">Speciality</label>
+            <select id="speciality">
+                <option value="mathematics">Mathematics</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+            </select>
+        </div>
+
+        <div class="country-city">
+            <div class="country">
+                <label for="country">Country</label>
+                <select id="country">
+                    <option value="ukraine">Ukraine</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                </select>
+            </div>
+            <div class="city">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="Enter city">
+            </div>
+        </div>
+
+        <div class="email-phone">
+            <div class="email">
+            <label for="email">Email</label>
+            <input type="email" id="email"  placeholder="Enter email">
+            </div>
+
+            <div class="phone">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Enter phone number">
+            </div>
+        </div>
+
+        <div class="dob">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" >
+        </div>
+
+        <div class="sex">
+            <div class="sex-lable">
+                <label>Sex</label>
+            </div>
+            <label for="male">Male</label>
+            <input type="radio" id="male">
+
+            <label for="female">Female</label>
+            <input type="radio" id="female">
+        </div>
+
+        <div class="bgc">
+            <div class="lable-bgc">
+                <label for="bgcolor">Background color</label>
+            </div>
+            <div class="type-color-input">
+                <input type="color" id="bgcolor">
+            </div>
+        </div>
+
+        <div class="notes-lable">
+            <label for="notes">Notes (optional)</label>
+        </div>
+        <div class="notes">
+            <textarea id="notes" placeholder="Enter notes"></textarea>
+        </div>
+
+        <button class="button">Add</button>
+    </form>
+</div>
+    <script>
+        // Отримуємо елементи
+        const addTeacherButton = document.querySelector('.add-teacher-button');
+        const popup = document.getElementById('popup');
+        const closeButton = document.querySelector('.close');
+        const popupFormContainer = document.getElementById('popup-form-container');
+
+        // Відкриваємо попап при натисканні кнопки
+        addTeacherButton.addEventListener('click', () => {
+            fetch('add-teacher.html') // Завантажуємо форму з окремого HTML документа
+                .then(response => response.text())
+                .then(data => {
+                    popupFormContainer.innerHTML = data; // Додаємо форму в контейнер
+                    popup.style.display = 'block'; // Відкриваємо попап
+                })
+                .catch(error => console.error('Error loading the form:', error));
+        });
+
+        // Закриваємо попап при натисканні на кнопку закриття
+        closeButton.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupFormContainer.innerHTML = ''; // Очищаємо контейнер
+        });
+
+        // Закриваємо попап при натисканні поза попапом
+        window.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                popup.style.display = 'none';
+                popupFormContainer.innerHTML = ''; // Очищаємо контейнер
+            }
+        });
+    </script>
+</body>
+</html>
